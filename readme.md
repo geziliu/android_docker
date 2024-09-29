@@ -18,7 +18,7 @@ modprobe ashmem_linux #内存共享模块
 
 2.克隆本项目
 ```
-git clone https://github.com/MrWQ/android_docker
+git clone https://github.com/geziliu/android_docker
 ```
 3.修改nginx/passwd_scrcpy_web内的账号和密码<br>
 现在nginx/passwd_scrcpy_web内账号密码为（admin:admin）,强烈建议自己修改一下
