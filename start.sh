@@ -9,8 +9,8 @@ docker run -itd --name=${REDROID} \
     --memory-swappiness=0 \
     --privileged --pull always \
     -v ./redroid/data:/data \
-    -p 127.0.0.1:5555:5555 \
-    redroid/redroid:11.0.0-latest \
+    -p 5555:5555 \
+    redroid/redroid:9.0.0-latest \
     androidboot.hardware=mt6891 ro.secure=0 ro.boot.hwc=GLOBAL    ro.ril.oem.imei=861503068361145 ro.ril.oem.imei1=861503068361145 ro.ril.oem.imei2=861503068361148 ro.ril.miui.imei0=861503068361148 ro.product.manufacturer=Xiaomi ro.build.product=chopin \
     redroid.width=720 redroid.height=1280 \
     redroid.gpu.mode=guest
@@ -18,7 +18,7 @@ docker run -itd --name=${REDROID} \
 echo -e "\n 2.create android:scrcpy-web "
 docker run -itd  -v ./scrcpy-web/data:/data -v ./scrcpy-web/apk:/apk --name ${SCRCPY} --link ${REDROID} emptysuns/scrcpy-web:v0.1
 
-sleep 3
+sleep 5
 echo -e "\n 3.${SCRCPY} adb connect ${REDROID}"
 docker exec -it ${SCRCPY} adb connect ${REDROID}:5555
 
